@@ -1,0 +1,210 @@
+#!/usr/bin/bash
+
+check_service() {
+echo "$SVRS"|while read line; do
+   IFS=':'
+   set -- $line
+   unset IFS
+   
+   [ -z "$1" -o -z "$2" ] && continue
+   
+   echo | telnet $host_ip $1 2>&1 | \
+   grep "Connection to $host_ip closed by foreign host." > /dev/null || {
+      echo "`date +"$DATEFMT"` $host_name $host_ip Failed on port $1!! please check it..." >> $LOGFILE
+      $2 > /dev/null 2>&1
+   }
+
+   echo | telnet $host_ip $1 2>&1 | \
+   grep "Connection to $host_ip closed by foreign host." > /dev/null && {
+      echo "`date +"$DATEFMT"` $host_name $host_ip port: $1 check is OK~" >> $LOGFILE
+      $2 > /dev/null 2>&1
+   }
+done
+echo >> $LOGFILE
+}
+
+check_mail_server() {
+host_name='Mail_Server'
+host_ip='222.255.28.217'
+SVRS="
+995:echo 'SSL_POP3 daemon needs to check!!(port: 995)'
+465:echo 'SSL_SMTP daemon needs to check!!(port: 465)'
+110:echo 'POP3 daemon needs to check!!(port: 110)'
+25:echo 'SMTP daemon needs to check!!(port: 25)'
+"
+check_service
+}
+
+check_sms_gateway_server() {
+host_name='SMS_GATEWAY_Server'
+host_ip='192.168.5.2'
+SVRS="
+8086:echo 'SMS Gateway daemon needs to check!!(port: 8086)'
+"
+check_service
+}
+
+check_db1_server() {
+host_name='DB1_Server'
+host_ip='172.16.8.25'
+SVRS="
+1521:echo 'Oracle DB1 daemon needs to check!!(port: 1521)'
+"
+check_service
+}
+
+check_db2_server() {
+host_name='DB2_Server'
+host_ip='172.16.8.26'
+SVRS="
+1521:echo 'Oracle DB2 daemon needs to check!!(port: 1521)'
+"
+check_service
+}
+
+check_testing_web_server() {
+host_name='Testing_WEB_Server'
+host_ip='172.16.8.51'
+SVRS="
+21:echo 'FTP daemon needs to check!!(port: 21)'
+80:echo 'Customer and Management Web UI daemon needs to check!!(port: 80)'
+443:echo 'Customer and Management Web UI(SSL) daemon needs to check!!(port: 443)'
+"
+check_service
+}
+
+check_epurse_web_server() {
+host_name='E-Purse_WEB_Server'
+host_ip='172.16.8.14'
+SVRS="
+21:echo 'FTP daemon needs to check!!(port: 21)'
+80:echo 'Customer and Management Web UI daemon needs to check!!(port: 80)'
+443:echo 'Customer and Management Web UI(SSL) daemon needs to check!!(port: 443)'
+"
+check_service
+}
+
+check_webtopup_web_server() {
+host_name='WebTopup_WEB_Server'
+host_ip='172.16.8.15'
+SVRS="
+21:echo 'FTP daemon needs to check!!(port: 21)'
+80:echo 'Customer and Management Web UI daemon needs to check!!(port: 80)'
+443:echo 'Customer and Management Web UI(SSL) daemon needs to check!!(port: 443)'
+"
+check_service
+}
+
+check_webatm_web_server() {
+host_name='WebATM_WEB_Server'
+host_ip='172.16.8.4'
+SVRS="
+21:echo 'FTP daemon needs to check!!(port: 21)'
+80:echo 'Customer and Management Web UI daemon needs to check!!(port: 80)'
+443:echo 'Customer and Management Web UI(SSL) daemon needs to check!!(port: 443)'
+"
+check_service
+}
+
+check_testing_ap_server() {
+host_name='Testing_AP_Server'
+host_ip='172.16.8.52'
+SVRS="
+3251:echo 'WebTopup Online daemon needs to check!!(port: 2251)'
+8788:echo 'WebTopup Online daemon needs to check!!(port: 7788)'
+8080:echo 'WebTopup Web Service daemon needs to check!!(port: 8080)'
+3253:echo 'E-Purse Online daemon needs to check!!(port: 3253)'
+"
+check_service
+}
+
+check_ap1_server() {
+host_name='AP1_Server'
+host_ip='172.16.8.3'
+SVRS="
+2251:echo 'WebTopup Online daemon needs to check!!(port: 2251)'
+7788:echo 'WebTopup Online daemon needs to check!!(port: 7788)'
+8080:echo 'WebTopup Web Service daemon needs to check!!(port: 8080)'
+3253:echo 'E-Purse Online daemon needs to check!!(port: 3253)'
+"
+check_service
+}
+
+check_ap2_server() {
+host_name='AP2_Server'
+host_ip='172.16.8.2'
+SVRS="
+2251:echo 'WebTopup Online daemon needs to check!!(port: 2251)'
+7788:echo 'WebTopup Online daemon needs to check!!(port: 7788)'
+8080:echo 'WebTopup Web Service daemon needs to check!!(port: 8080)'
+3253:echo 'E-Purse Online daemon needs to check!!(port: 3253)'
+"
+check_service
+}
+
+check_HSM_server() {
+host_name='HSM_Server'
+host_ip='172.16.8.12'
+SVRS="
+12396:echo 'HSM daemon needs to check!!(port: 12396)'
+"
+check_service
+}
+
+check_Production_VTB_server() {
+host_name='VTB_Server'
+host_ip='192.168.6.103'
+SVRS="
+8082:echo 'VTB Production Web Service daemon needs to check!!(port: 8082)'
+"
+check_service
+}
+
+check_Testing_VTB_server() {
+host_name='VTB_Server'
+host_ip='192.168.6.253'
+SVRS="
+8082:echo 'VTB Testing Web Service daemon needs to check!!(port: 8082)'
+"
+check_service
+}
+
+check_NAC_server() {
+host_name='NAC_Server'
+host_ip='172.16.8.50'
+SVRS="
+2100:echo 'VTB Web Service daemon needs to check!!(port: 2100)'
+"
+check_service
+}
+
+check_Topup_server() {
+host_name='Topup_Server'
+host_ip='123.30.18.11'
+SVRS="
+1433:echo 'SQL daemon needs to check!!(port: 1433)'
+8084:echo 'Topup daemon needs to check!!(port: 8084)'
+8085:echo 'Directopup daemon needs to check!!(port: 8085)'
+"
+check_service
+}
+
+LOGFILE="./log/svmon_`date +%Y%m%d`.log"
+DATEFMT="%Y/%m/%d %R"
+# check_mail_server
+# check_sms_gateway_server
+check_db1_server
+check_db2_server
+check_testing_web_server
+check_epurse_web_server
+check_webtopup_web_server
+check_webatm_web_server
+check_testing_ap_server
+check_ap1_server
+check_ap2_server
+check_HSM_server
+check_Production_VTB_server
+check_Testing_VTB_server
+# check_NAC_server
+check_Topup_server
+

@@ -1,0 +1,18 @@
+Filesystem            kbytes    used   avail capacity  Mounted on
+/dev/dsk/c1t0d0s0    6739511 3588229 3083887    54%    /
+/devices                   0       0       0     0%    /devices
+ctfs                       0       0       0     0%    /system/contract
+proc                       0       0       0     0%    /proc
+mnttab                     0       0       0     0%    /etc/mnttab
+swap                  838096     944  837152     1%    /etc/svc/volatile
+objfs                      0       0       0     0%    /system/object
+sharefs                    0       0       0     0%    /etc/dfs/sharetab
+/usr/lib/libc/libc_hwcap1.so.1 6739511 3588229 3083887    54%    /lib/libc.so.1
+fd                         0       0       0     0%    /dev/fd
+swap                  837336     184  837152     1%    /tmp
+swap                  837184      32  837152     1%    /var/run
+apdata               74833920 1382904 65169408     3%    /apdata
+apdata/dev_epurse    10485760 1062851 9422909    11%    /dev_epurse
+apdata/dev_webatm    10485760 1436558 9049201    14%    /dev_webatm
+apdata/dev_webtopup  10485760 2429816 8055943    24%    /dev_webtopup
+apdata/opt           74833920 3351979 65169408     5%    /opt

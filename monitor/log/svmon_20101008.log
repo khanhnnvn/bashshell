@@ -1,0 +1,43 @@
+2010/10/08 08:00 DB1_Server 172.16.8.25 port: 1521 check is OK~
+
+2010/10/08 08:00 DB2_Server 172.16.8.26 port: 1521 check is OK~
+
+2010/10/08 08:00 Testing_WEB_Server 172.16.8.51 port: 21 check is OK~
+2010/10/08 08:00 Testing_WEB_Server 172.16.8.51 port: 80 check is OK~
+2010/10/08 08:00 Testing_WEB_Server 172.16.8.51 port: 443 check is OK~
+
+2010/10/08 08:00 E-Purse_WEB_Server 172.16.8.14 port: 21 check is OK~
+2010/10/08 08:00 E-Purse_WEB_Server 172.16.8.14 port: 80 check is OK~
+2010/10/08 08:00 E-Purse_WEB_Server 172.16.8.14 port: 443 check is OK~
+
+2010/10/08 08:00 WebTopup_WEB_Server 172.16.8.15 port: 21 check is OK~
+2010/10/08 08:00 WebTopup_WEB_Server 172.16.8.15 port: 80 check is OK~
+2010/10/08 08:00 WebTopup_WEB_Server 172.16.8.15 port: 443 check is OK~
+
+2010/10/08 08:00 WebATM_WEB_Server 172.16.8.4 port: 21 check is OK~
+2010/10/08 08:00 WebATM_WEB_Server 172.16.8.4 port: 80 check is OK~
+2010/10/08 08:00 WebATM_WEB_Server 172.16.8.4 Failed on port 443!! please check...
+
+2010/10/08 08:00 Testing_AP_Server 172.16.8.52 port: 3251 check is OK~
+2010/10/08 08:00 Testing_AP_Server 172.16.8.52 port: 8788 check is OK~
+2010/10/08 08:00 Testing_AP_Server 172.16.8.52 port: 8080 check is OK~
+2010/10/08 08:00 Testing_AP_Server 172.16.8.52 port: 3253 check is OK~
+
+2010/10/08 08:00 AP1_Server 172.16.8.3 port: 2251 check is OK~
+2010/10/08 08:00 AP1_Server 172.16.8.3 port: 7788 check is OK~
+2010/10/08 08:00 AP1_Server 172.16.8.3 port: 8080 check is OK~
+2010/10/08 08:00 AP1_Server 172.16.8.3 port: 3253 check is OK~
+
+2010/10/08 08:00 AP2_Server 172.16.8.2 port: 2251 check is OK~
+2010/10/08 08:00 AP2_Server 172.16.8.2 port: 7788 check is OK~
+2010/10/08 08:00 AP2_Server 172.16.8.2 port: 8080 check is OK~
+2010/10/08 08:00 AP2_Server 172.16.8.2 port: 3253 check is OK~
+
+2010/10/08 08:00 HSM_Server 172.16.8.12 port: 12396 check is OK~
+
+2010/10/08 08:00 VTB_Server 192.168.6.253 port: 8082 check is OK~
+
+2010/10/08 08:00 Topup_Server 123.30.18.11 port: 1433 check is OK~
+2010/10/08 08:00 Topup_Server 123.30.18.11 port: 8084 check is OK~
+2010/10/08 08:00 Topup_Server 123.30.18.11 port: 8085 check is OK~
+
